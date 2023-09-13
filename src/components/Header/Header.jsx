@@ -12,8 +12,8 @@ function Header() {
 
 
   return (
-    <nav>
-      <img src={cover} alt="cover" className="cover" />
+    <nav className="cover" style={{ backgroundImage: `url(${require('../../assest/images/johnWick.jfif')})` }}>
+      {/* <img src={cover} alt="cover" className="cover" /> */}
       <div className='container'>
 
         <div className="Left-side">
@@ -33,26 +33,30 @@ function Header() {
 
       <div className="lower-side">
         <div className="lower-Left-side">
-          <div className="header-movie-name">
-            John Wick 3 : Parabellum
-          </div>
-          <div className="movie-rating">
-            <div className="movie-rating-imbd">
-              <img src={IMBD} alt="IMBD" className="IMBD" /> <p>86.0 / 100</p>
+          <span>
+            <div className="header-movie-name">
+              John Wick 3 : Parabellum
             </div>
-            <div className="movie-rating-tomato">
-              <img src={Tomato} alt="Tomato" className="Tomato" /> <p>90%</p>
+            <div className="movie-rating">
+              <div className="movie-rating-imbd">
+                <img src={IMBD} alt="IMBD" className="IMBD" /> <p>86.0 / 100</p>
+              </div>
+              <div className="movie-rating-tomato">
+                <img src={Tomato} alt="Tomato" className="Tomato" /> <p>90%</p>
+              </div>
             </div>
-          </div>
-          <div className="movie-discription">
-            <p>John Wick is on the run after killing a member of the international assassins' guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.</p>
-          </div>
-          <div className="movie-button">
-            <button>
-              <img src={Play} alt="Play" className="Play" />
-              <p>Watch trailer</p>
-            </button>
-          </div>
+          </span>
+          <span>
+            <div className="movie-discription">
+              <p>John Wick is on the run after killing a member of the international assassins' guild, and with a $14 million price tag on his head, he is the target of hit men and women everywhere.</p>
+            </div>
+            <div className="movie-button">
+              <button>
+                <img src={Play} alt="Play" className="Play" />
+                <p>Watch trailer</p>
+              </button>
+            </div>
+          </span>
         </div>
         <div className="lower-Right-side">
           <p>1</p>

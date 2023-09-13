@@ -142,18 +142,12 @@ cursor: pointer;
   }
   @media screen and (max-width: 980px) {
     .sideBar{
-        max-width: 112px;
+        max-width: 50px;
         min-height: 800px;
-        border-radius: 0px 45px 45px 0px;
-        border: 1px;
-        color: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    linear-gradient(0deg, #FFFFFF, #FFFFFF);
-    border: 1px solid #0000004D;
     
     }
     .logo-name-sideBar{
       display: none;
-    
     }
     .Movie-item{
         display: flex;
@@ -167,15 +161,11 @@ cursor: pointer;
         flex-direction: column;
         justify-content: space-between;
         text-align: left;
-        /* height: 100%; */
-        color: #666666;
         
     }
     .side-logo{
         width: 25px;
     height: 25px;
-    box-shadow: 0px 1px 2px 0px #00000033;
-    
     }
     .Movie-item span .item-name{
         padding-left: 15%; 
@@ -204,9 +194,9 @@ cursor: pointer;
         display: flex;
         align-items: center;
       }
-      
+      .tv-logo{
+        width: 30px;
+    height: 30px;
+    
+    }
   }
-  @media screen and (max-width: 720px) {
- 
-  
-}

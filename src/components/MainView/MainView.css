@@ -271,7 +271,7 @@ font-size: 12px;
 @media screen and (max-width: 980px) {
     .Movie-view-left-cat{
     font-size: 10px;
-    gap: 1.5rem;
+    padding-left: 1rem;
     }
     .Movie-view-left-title{
     font-size: 14px;
@@ -319,20 +319,31 @@ font-size: 12px;
 font-size: 10px;
 }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 650px) {
+    .Movie-Trailer{
+        width: 98%;
+        margin: 10px auto;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    height: 180px;
+    border-radius: 20px;
+    
+    }
     .Movie-view-left{
         display: flex;
         flex-direction: column;
-        align-items: start;
+        align-items: center;
         justify-content: center;
         width: 100%;
       }
       .Movie-view-bottom{
         display: block;
     }
-    .Movie-view-right-top{
-      
-    }
+   
     .Movie-view-right{
         margin-top: 1.5rem;
         display: flex;
@@ -340,5 +351,32 @@ font-size: 10px;
         align-items: center;
         justify-content: space-between;
     }
- 
+    .Movie-view-left-title{
+        font-size: 14px;
+        gap: 1px;
+        }
+        .Movie-btn{
+            font-size: 12px;
+            width: 150px;
+            height: 30px;
+        gap: 0.8rem;
+        }
+        .Movie-btn2{
+            font-size: 12px;
+            width: 150px;
+        
+        }
+        .Movie-btn3{
+            font-size: 12px;
+            width: 150px;
+        }
+        .Movie-view-right-top{
+            align-items: center;
+        }
+}
+@media screen and (max-width: 520px) {
+
+.Movie-view-left-title{
+    font-size: 12px;
+    }
 }
