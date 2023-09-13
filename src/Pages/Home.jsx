@@ -20,17 +20,6 @@ function Home() {
                 </div>
                 <div className='cards-holder'>
                     <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
-                    <MovieCard />
                 </div>
             </main>
             <Footer />
