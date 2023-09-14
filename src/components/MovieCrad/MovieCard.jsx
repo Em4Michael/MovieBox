@@ -7,69 +7,81 @@ import Heart from '../../assest/images/Heart.png'
 import IMBD from '../../assest/images/mibd.png'
 import Tomato from '../../assest/images/tomato.png'
 import axios from 'axios';
+import useMovieApi from '../../assest/Api/useMovieApi'
 
 function MovieCard() {
+  const [isFavorite, setIsFavorite] = useState(false);
 
-  const [movies, setMovies] = useState([]);
+  const toggleFavorite = () => {
+    setIsFavorite(!isFavorite);
+    console.log('clicked')
+  };
 
-  useEffect(() => {
-    // Replace 'YOUR_API_KEY' with your TMDb API key
-    const apiKey = 'e0fdcc3687db83f3bf4a938787e50a42';
-    const apiUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
-    
-    axios.get(apiUrl)
-      .then((response) => {
-        setMovies(response.data.results);
-        console.log(response.data.results);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+
+
+
+
+  const { data, loading, error, top10 } = useMovieApi();
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+
+  if (!data) {
+    return <p>No data available.</p>;
+  }
+
+
+
   return (
     <>
-    {movies.map((movie) => (
-      
-       
-      
-    
-    <div className='card-container' data-testid='movie-card' key={movie.id}>
-      <Link to='/Movies'><div className='image-card'>
-        <img src={`https://image.tmdb.org/t/p/original/${
-            movie.backdrop_path || movie.poster_path
-          }`} alt="movie-poster" className="Image-display" data-testid='movie-poster' />
-        <div className='Image-nav' >
-          <div className='movie-type' >
-          {movie.movieType}
-          </div>
-          <div className='favourite' >
-            <img src={Heart} alt="Heart" className="Heart" />
-          </div>
-        </div>
-        <div className='Image-info' >
-          <div className='movie-date' >
-            <span> {movie.realseCountry},</span> <div data-testid='data-testid: movie-release-date'>{movie.release_date}</div>
-          </div>
-          <div className='movie-name' data-testid='movie-title'>
-             {movie.title}
-          </div>
-          <div className="movie-card-rating">
-            <div className="movie-card-rating-imbd">
-              <img src={IMBD} alt="IMBD" className="IMBD" /> <p>{movie.popularity}</p>
+      {top10.map((movie) => (
+
+        <div className='card-container' data-testid='movie-card' key={movie.id}>
+          <div className='image-card'>
+            <Link to='/Movies'>
+              <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path || movie.poster_path
+                }`} alt="movie-poster" className="Image-display" data-testid='movie-poster' />
+            </Link>
+            <div className='Image-nav' >
+              <div className='movie-type' >
+                {movie.movieType}
+              </div>
+              <div className={isFavorite ? 'active' : 'favorite'}>
+                <img src={Heart} alt="Heart" className="Heart" onClick={toggleFavorite} />
+              </div>
             </div>
-            <div className="movie-card-rating-tomato">
-              <img src={Tomato} alt="movie-card-Tomato" className="movie-card-Tomato" /> <p>{movie.vote_average}</p>
+            <div className='Image-info' >
+              <div className='movie-date' >
+                <span> {movie.realseCountry},</span> <div data-testid='data-testid: movie-release-date'>{movie.release_date}</div>
+              </div>
+              <div className='movie-name' data-testid='movie-title'>
+                {movie.title}
+              </div>
+              <div className="movie-card-rating">
+                <div className="movie-card-rating-imbd">
+                  <img src={IMBD} alt="IMBD" className="IMBD" /> <p>{movie.popularity}</p>
+                </div>
+                <div className="movie-card-rating-tomato">
+                  <img src={Tomato} alt="movie-card-Tomato" className="movie-card-Tomato" /> <p>{movie.vote_average}</p>
+                </div>
+              </div>
+              <div className='movie-genre' >
+                {movie.original_language}
+              </div>
+              <div className='movie-genre' >
+                {movie.vote_count}
+              </div>
             </div>
           </div>
-          <div className='movie-genre' >
-          {movie.original_language}
-          </div>
+
         </div>
-      </div>
-      </Link>
-    </div>
-))}
-</>
+      ))}
+    </>
   )
 }
 

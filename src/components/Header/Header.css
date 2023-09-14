@@ -11,6 +11,44 @@ nav{
   background-repeat: no-repeat;
   
 }
+.inputModal{
+  position: absolute;
+  background-color: #9CA3AF;
+  left: 50%;
+  transform: translate( -50%);
+  width: 50vw;
+}
+.inputModal li{
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.movie-date-search{
+  font-family: DM Sans;
+font-size: 10px;
+font-weight: 700;
+color: #9CA3AF;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.movie-name-search{
+  font-family: DM Sans;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.Image-display-search{
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  }
 .container{
   display: flex;
   justify-content: space-between;
@@ -28,8 +66,6 @@ nav{
 }
 
 .input{
-top: 22px;
-left: 493px;
 padding: 6px 10px 6px 10px;
 border-radius: 6px;
 border: 2px solid #D1D5DB;
@@ -45,6 +81,8 @@ background-color: #ffffff00;
 .Right-side{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 .SignIn{
 font-family: DM Sans;
@@ -53,7 +91,6 @@ font-weight: 700;
 line-height: 24px;
 letter-spacing: 0em;
 color: #FFFFFF;
-padding: 5px 30px 0px 4px;
 }
 .Menu{
   width: 36px;
@@ -104,6 +141,9 @@ letter-spacing: 0em;
 text-align: left;
 color: #FFFFFF;
 margin-bottom: 1rem;
+overflow: hidden;
+text-overflow: ellipsis;
+
 }
 .movie-rating{
   width: 184px;
@@ -165,6 +205,8 @@ letter-spacing: 0em;
 text-align: left;
 color: #FFFFFF;
 margin-bottom: 1rem;
+overflow: hidden;
+text-overflow: ellipsis;
 }
 
 .movie-button button{
@@ -182,16 +224,20 @@ text-transform: uppercase;
  padding-top: 2px;
  
 }
+@media screen and (max-width: 1200px) {
+  .inputModal{
+    position: absolute;
+    background-color: #9CA3AF;
+    left: 50%;
+    transform: translate( -50%);
+    width: 95vw;
+  }
+}
  @media screen and (max-width: 720px) {
   nav{
     min-height: 400px;
   }
-  .Left-side{
-    
-  }
-  .lower-Left-side{
-  
-  }
+
   .logo {
     width: 8rem;
   }
@@ -236,7 +282,7 @@ text-transform: uppercase;
     width: 70vw;
     height: 50px;
   font-size: 30px;
-  line-height: 12px;
+  line-height: 30px;
   margin-bottom: 0rem;
   }
   .movie-rating{
@@ -271,7 +317,7 @@ text-transform: uppercase;
  
   .movie-discription{
     width: 70vw;
-    height: 10px;
+    height: 60px;
     font-family: DM Sans;
   font-size: 14px;
   font-weight: 500;
@@ -295,22 +341,53 @@ text-transform: uppercase;
    
   }
 }
+
 @media screen and (max-width: 420px) {
   nav{
     min-height: 240px;
   }
+  .container{
+    width: 95%;
+  }
+  .logo {
+    width: 5rem;
+  }
+  
+  .input{
+  width: 30vw;
+  height: 20px;
+  }
+  .SignIn{
+  font-size: 12px;
+  }
+  .Menu{
+    width: 20px;
+    height: 20px;
+  padding: 0px;
+  
+  }
+ .MenuIcon{
+  width: 18px;
+  height: 18px;
+  }
   .header-movie-name{
-    width: 70vw;
-    height: 10px;
-  font-size: 24px;
-  line-height: 0px;
-  margin-top: 0rem;
+    width: 90vw;
+    height: 20px;
+  font-size: 20px;
+  line-height: 18px;
+  margin-top: -1.5rem;
   }
   .movie-discription{
     width: 85vw;
-    height: 5px;
-  font-size: 14px;
+    height: 30px;
+  font-size: 10px;
   line-height: 10px;
+  margin-top: 1.5rem;
+  }
+  .movie-rating{
+    height: 10px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
   }
   .movie-button button{
     width: 45vw;
@@ -319,45 +396,8 @@ text-transform: uppercase;
     align-items: center;
     justify-content: center;
     border-radius: 6px;
+    font-size: 10px;
+    padding: 2px;
+    margin-top: -2rem;
   }
 }
-/* @media screen and (max-width: 720px) {
-  nav{
-    
-  }
-  .cover {
-  
-    width: 100%;
-    height: 400px ; 
-  } 
-  .lower-side{
-    grid-template-columns: 95% 5%;
-    top: -500px;
-  }
-  .container{
-    scale: 0.9;
-    top: -400px;
-  }
-  .lower-side{
-    scale: 0.9;
-  }
-}
-@media screen and (max-width: 640px) {
-  .logo {
-    width: 8rem;
-  }
-  
-  .input{
-  width: 40vw;
-  height: 36px;
-  }
-  .SignIn{
-  font-size: 14px;
-  }
-  .Menu{
-    width: 26px;
-    height: 26px;
-  padding: 0px 0px 0px 0px;
-  
-  }
-} */

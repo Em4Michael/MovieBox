@@ -1,7 +1,7 @@
 
 .card-container{
-    width: Hug (250px);
-height: Hug (490px);
+    width:250px;
+height: 320px;
 border-radius: 6px;
 gap: 12px;
 margin-top: 2rem;
@@ -9,10 +9,9 @@ margin-top: 2rem;
 .movie-nav{
     width: 90%;
     height: Hug (47px);
-    top: 670px;
     display: flex;
     justify-content: space-between;
-    margin: 1rem;
+    
 }
 .featured-movie{
     width: 270px;
@@ -50,18 +49,22 @@ margin-top: 5px;
 }
 .Image-display{
 width: 250px;
-height: 370px;
+height: 220px;
 cursor: pointer;
+}
+.Image-info{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 210px;
 }
 .Image-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: auto;
     width: 80%;
-    top: -360px;
-    position: relative;
-
+    margin-top: -220px;
+   margin-left: 20px;
 }
 .movie-type{
     font-family: DM Sans;
@@ -79,13 +82,22 @@ border-radius: 12px;
 background: #F3F4F680;
 }
 
-.favourite{
+.favorite {
     width: 30px;
     height: 29.210525512695312px;
     background: #F3F4F680;
     padding: 5px 4px 0px 5px;
     border-radius: 50%;
     cursor: pointer;
+}
+.active{
+    width: 30px;
+    height: 29.210525512695312px;
+    background: #BE123C;
+    padding: 5px 4px 0px 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    
 }
 .movie-date{
     width: 114px;
@@ -110,7 +122,9 @@ justify-content: space-between;
     letter-spacing: 0px;
     text-align: left;
     color: #111827;
-
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 .movie-card-rating{
     width: Fixed (250px);
@@ -194,12 +208,18 @@ color: #9CA3AF;
 }
 
 @media screen and (max-width: 720px) {
-    .movie-nav{
-        scale: 0.9;
-    }
+    
     .featured-movie{
     font-size: 24px;
     font-weight: 700;
     line-height: 47px;
+    }
+}
+@media screen and (max-width: 480px) {
+    
+    .featured-movie{
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 54px;
     }
 }
