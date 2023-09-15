@@ -1,79 +1,95 @@
-import React from 'react'
-import './MainView.css'
-import play from '../../assest/images/Play (1).png'
-import Star from '../../assest/images//Star.png'
-import List from '../../assest/images/List (1).png'
-import List2 from '../../assest/images/List.png'
-import Ticket from '../../assest/images/Two Tickets.png'
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import './MainView.css';
+import play from '../../assest/images/Play (1).png';
+import Star from '../../assest/images/Star.png';
+import List from '../../assest/images/List (1).png';
+import List2 from '../../assest/images/List.png';
+import Ticket from '../../assest/images/Two Tickets.png';
+import useIdApi from '../../assest/Api/useIdApi';
 
 function MainView() {
+  const { id } = useParams(); // Get the 'id' parameter from the URL
+  const { allId, loading, error } = useIdApi(id); // Use your custom hook to fetch data
+
+  useEffect(() => {
+    // You can perform additional actions here when 'allId' changes
+    // For example, update the document title or trigger other side effects
+    document.title = `Movie Details: ${allId.title}`;
+  }, [allId]);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
 
     return (
-        <div className='Movie-view' >
+        <div className='Movie-view'>
             <div
                 className='Movie-Trailer'
-                style={{ backgroundImage: `url(${require('../../assest/images/triller.jfif')})` }}
+                style={{ backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${allId.backdrop_path || allId.poster_path
+              }`})` }}
             >
-
                 <div className="play-wrapperg">
                     <img src={play} alt="triller-Logo" className="play-logo" />
                 </div>
                 <span> Watch Trailer </span>
-
             </div>
-            <div className='Movie-view-bottom' >
-                <div className='Movie-view-left' >
+            <div className='Movie-view-bottom'>
+                <div className='Movie-view-left'>
                     <div className='Movie-view-left-title-wrapper'>
                         <div className='Movie-view-left-title'>
-
-                            <p data-testid='movie-title' >Top Gun: Maverick </p> •
-                            <p data-testid='movie-release-date'> 2022 </p> •
-                            <p> PG-13 </p>•
-                            <p data-testid='movie-runtime'>2h 10m</p>
-
+                            <p data-testid='movie-title'>{allId.title}</p> •
+                            <p data-testid='movie-release-date'>{allId.release_date}</p> •
+                            <p> {allId.rating}</p> •
+                            <p data-testid='movie-runtime'>{allId.runtime}m</p>
                         </div>
                         <div className='Movie-view-left-cat'>
-                            <span> Action </span>
-                            <span> Drama </span>
+                            {allId.genres.map((genre) => (
+                                <span key={genre.id}>{genre.name}</span>
+                            ))}
                         </div>
                     </div>
-
                     <div id='movie-overview'>
-                        <p data-testid='movie-overview'>
-                            After thirty years, Maverick is still pushing the envelope as a top naval aviator,
-                            but must confront ghosts of his past when he leads TOP GUN's elite graduates
-                            on a mission that demands the ultimate sacrifice from those chosen to fly it.
-                        </p>
+                        <p data-testid='movie-overview'>{allId.overview}</p>
                     </div>
-                    <div className='Movie-view-left-title-info' >
+                    <div className='Movie-view-left-title-info'>
                         <span>
-                            Director : <span className='color-danger'>Joseph Kosinski</span>
+                            Director : <span className='color-danger'>{allId.director}</span>
                         </span>
                         <span>
-                            Writers : <span className='color-danger'>Jim Cash, Jack Epps Jr, Peter Craig</span>
+                            Writers : <span className='color-danger'>{allId.writers}</span>
                         </span>
                         <span>
-                        Stars : <span className='color-danger'>  Tom Cruise, Jennifer Connelly, Miles Teller</span>
+                            Stars : <span className='color-danger'>{allId.stars}</span>
                         </span>
                     </div>
-                    <div className='Movie-view-left-top-rate' >
+                    <div className='Movie-view-left-top-rate'>
                         <button className='Movie-btn'>
-                            Top rated movie #65
+                            Top rated movie #{allId.rank}
                         </button>
                         <span className='Movie-btn2'>
-                            Awards 9 nominations
+                            Awards {allId.awards} nominations
                         </span>
                     </div>
                 </div>
-                <div className='Movie-view-right' >
-                    <div className='Movie-view-right-top' >
-                        <div className='Movie-view-right-top-rating' >
-                            <span> <img src={Star} alt="icon" className="icon" /></span> <span>8.5 | 350k</span>
+                <div className='Movie-view-right'>
+                    <div className='Movie-view-right-top'>
+                        <div className='Movie-view-right-top-rating'>
+                            <span>
+                                <img src={Star} alt="icon" className="icon" />
+                            </span>
+                            <span>
+                                {allId.rating} | {allId.votes} votes
+                            </span>
                         </div>
-                        <button className='Movie-btn' >
-                            <img src={Ticket} alt="icon" className="icon" /> <spa> See Showtimes</spa>
+                        <button className='Movie-btn'>
+                            <img src={Ticket} alt="icon" className="icon" /> <span> See Showtimes</span>
                         </button>
-                        <button className='Movie-btn3' >
+                        <button className='Movie-btn3'>
                             <img src={List} alt="icon" className="icon" />
                             <span> More watch options</span>
                         </button>
@@ -83,14 +99,14 @@ function MainView() {
                         style={{ backgroundImage: `url(${require('../../assest/images/116ee4b17ae77fa058f95de8e6b7cf2e.jfif')})` }}
                     >
                         <span>
-                        <img src={List2} alt="icon" className="icon" />
-                        <p> The Best Movies and Shows in September</p>
+                            <img src={List2} alt="icon" className="icon" />
+                            <p> The Best Movies and Shows in September</p>
                         </span>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default MainView
+export default MainView;

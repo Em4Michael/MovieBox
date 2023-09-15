@@ -61,7 +61,7 @@ box-shadow: 0px 1px 2px 0px #00000033;
     align-items: center;
   }
   
-  .Movie-item span.active {
+  .Movie-item span.activePage {
     transition: all 0.3s ease-in-out;
     width: 226px;
 height: 70px;

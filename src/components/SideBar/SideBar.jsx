@@ -22,7 +22,7 @@ function SideBar() {
         <div className='sideBar-item'>
 
           <div className='Movie-item'>
-            <span className={activeItem === 'Home' ? 'active' : ''}
+            <span className={activeItem === 'Home' ? 'activePage' : ''}
               onClick={() => handleItemClick('Home')}>
               <span>
                 <img src={Home} alt="Home" className="side-logo" />
@@ -32,7 +32,7 @@ function SideBar() {
 
           </div>
           <div className='Movie-item'>
-            <span className={activeItem === 'Movies' ? 'active' : ''}
+            <span className={activeItem === 'Movies' ? 'activePage' : ''}
               onClick={() => handleItemClick('Movies')}>
               <span>
                 <img src={Movies} alt="Movies" className="side-logo" />
@@ -42,7 +42,7 @@ function SideBar() {
 
           </div>
           <div className='Movie-item'>
-            <span className={activeItem === 'Tv Series' ? 'active' : ''}
+            <span className={activeItem === 'Tv Series' ? 'activePage' : ''}
               onClick={() => handleItemClick('Tv Series')}>
               <span>
                 <img src={TvShow} alt="TvShow" className="side-logo" />
@@ -52,7 +52,7 @@ function SideBar() {
 
           </div>
           <div className='Movie-item'>
-            <span className={activeItem === 'Upcoming' ? 'active' : ''}
+            <span className={activeItem === 'Upcoming' ? 'activePage' : ''}
               onClick={() => handleItemClick('Upcoming')}>
               <span>
                 <img src={Calendar} alt="Calendar" className="side-logo" />
@@ -67,7 +67,7 @@ function SideBar() {
             <span className='message-button'>Start playing </span>
           </div>
           <div className='Movie-item'>
-            <span className={activeItem === 'Logout' ? 'active' : ''}
+            <span className={activeItem === 'Logout' ? 'activePage' : ''}
               onClick={() => handleItemClick('Logout')}>
               <span>
                 <img src={Logout} alt="Logout" className="side-logo logout" />
