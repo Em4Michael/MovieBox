@@ -10,9 +10,20 @@ function useIdApi(id) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+
+    let isMounted = true;
+
     const fetchData = async () => {
       try {
+
         const AllResponseId = await axios.get(apiUrlDisplay);
+
+        if (!isMounted) {
+          return; // If the component unmounted, do not update state
+        }
+
+
+        //const AllResponseId = await axios.get(apiUrlDisplay);
         if (AllResponseId.status !== 200) {
           throw new Error('Network response was not ok');
         }
@@ -26,6 +37,9 @@ function useIdApi(id) {
     };
 
     fetchData();
+    return () => {
+      isMounted = false;
+    };
   }, [apiUrlDisplay]);
 
   return { allId, loading, error };

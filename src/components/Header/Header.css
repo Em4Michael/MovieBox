@@ -1,7 +1,17 @@
-
-nav{
-  min-height: 600px;
+/* Default navigation styles */
+.nav {
+  position: fixed;
+  background: rgba(0, 0, 0, 0); /* Transparent background */
+  width: 100vw;
+  transition: background-color 0.3s ease; /* Add a smooth transition */
 }
+
+/* Navigation styles with a darker background */
+.nav.dark {
+  background-color: rgba(0, 0, 0, 0.9); /* Darker background color */
+}
+
+
 .cover {
   display: flex;
   flex-direction: column;
@@ -9,40 +19,41 @@ nav{
   min-width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  
+  min-height: 600px;
 }
 .inputModal{
   position: absolute;
-  background-color: #9CA3AF;
+  background-color: #ffffff;
   left: 50%;
   transform: translate( -50%);
   width: 50vw;
+  text-decoration: none;
+  list-style: none;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 .inputModal li{
   padding: 5px;
   display: flex;
-  justify-content: space-between;
-}
-.movie-date-search{
-  font-family: DM Sans;
-font-size: 10px;
-font-weight: 700;
-color: #9CA3AF;
-overflow: hidden;
-text-overflow: ellipsis;
-white-space: nowrap;
-}
-.movie-name-search{
+  justify-content: left;
   font-family: DM Sans;
   font-size: 18px;
   font-weight: 700;
   color: #111827;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+.movie-release-date{
+margin-left: auto;
+}
+.movie-name-search{
+  margin-left: 10px;
   overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
+width: auto;
+padding-right: 10px;
 }
 .Image-display-search{
   width: 50px;
@@ -56,13 +67,25 @@ white-space: nowrap;
   margin: 10px auto;
   width: 90%;
 }
-
-.logo {
-  list-style: none;
-  cursor: pointer;
-  font-size: 1.5rem;
+.logo-container-Home{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+  margin-left: 5px;
+}
+.logo-name-Home{
+  font-family: DM Sans;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0em;
   color: rgb(255, 255, 255);
-  text-decoration: none;
+  padding-left: 10px;
+}
+.tv-logo-Home{
+  width: 50px;
+  height: 50px;
 }
 
 .input{
@@ -71,7 +94,7 @@ border-radius: 6px;
 border: 2px solid #D1D5DB;
 justify-content: space-between;
 color: #D1D5DB;
-width: 40vw;
+width: 45vw;
 height: 36px;
 background-color: #ffffff00;
 }
@@ -86,7 +109,7 @@ background-color: #ffffff00;
 }
 .SignIn{
 font-family: DM Sans;
-font-size: 18px;
+font-size: 20px;
 font-weight: 700;
 line-height: 24px;
 letter-spacing: 0em;
@@ -105,7 +128,7 @@ background: #BE123C;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: 10rem;
   width: 95%;
 }
 .lower-Right-side{
@@ -195,12 +218,12 @@ color: #FFFFFF;
 margin-right: 10px; 
 }
 .movie-discription{
-  width: 302px;
-  height: 72px;
+  width: 40vw;
+  height: 100px;
   font-family: DM Sans;
-font-size: 14px;
+font-size: 16px;
 font-weight: 500;
-line-height: 18px;
+line-height: 20px;
 letter-spacing: 0em;
 text-align: left;
 color: #FFFFFF;
@@ -226,15 +249,11 @@ text-transform: uppercase;
 }
 @media screen and (max-width: 1200px) {
   .inputModal{
-    position: absolute;
-    background-color: #9CA3AF;
-    left: 50%;
-    transform: translate( -50%);
     width: 95vw;
   }
 }
  @media screen and (max-width: 720px) {
-  nav{
+  .cover{
     min-height: 400px;
   }
 
@@ -243,9 +262,18 @@ text-transform: uppercase;
   }
   
   .input{
-  width: 30vw;
+  width: 40vw;
   height: 20px;
   }
+  .logo-name-Home{
+    font-family: DM Sans;
+    font-size: 14px;
+  }
+  .tv-logo-Home{
+    width: 30px;
+    height: 30px;
+  }
+  
   .SignIn{
   font-size: 14px;
   }
@@ -259,7 +287,7 @@ text-transform: uppercase;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 6rem;
     width: 95%;
   }
   .lower-Right-side{
@@ -343,7 +371,7 @@ text-transform: uppercase;
 }
 
 @media screen and (max-width: 420px) {
-  nav{
+  .cover{
     min-height: 240px;
   }
   .container{
@@ -354,11 +382,14 @@ text-transform: uppercase;
   }
   
   .input{
-  width: 30vw;
+  width: 60vw;
   height: 20px;
   }
+  .logo-name-Home{
+    display: none;
+  }
   .SignIn{
-  font-size: 12px;
+  display: none;
   }
   .Menu{
     width: 20px;

@@ -38,13 +38,15 @@ footer {
     font-weight: 700;
     line-height: 23px;
     letter-spacing: 0px;
-    text-align: left;
+    text-align: center;
     color: #6B7280;
-
+    margin-bottom: 1rem;
+    width: 100vw;
 }
 @media screen and (max-width: 720px) {
     footer{
-        scale: 0.9;
-        margin-left: 5%;
+        width: 80%;
+        margin: auto;
+        margin-top: 2rem;
       }
 }

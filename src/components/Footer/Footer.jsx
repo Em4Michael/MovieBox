@@ -27,7 +27,7 @@ function footer() {
         </div>
       </div>
 
-      <p class="copyright">&copy; {currentYear} MovieBox by Adriana Eka Prayudha</p>
+      <p class="copyright">&copy; {currentYear} MovieBox by Em4Michael</p>
     </footer>
   )
 }

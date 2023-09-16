@@ -18,19 +18,27 @@ height: 50px;
     align-items: center;
     justify-content: space-around;
     width: 90%;
-    margin-top: 2.5rem;
-    margin-bottom: 3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     margin-left: 5px;
 }
+.SideBar-flexer{
+  min-width: 200px;
+}
 .sideBar{
-    max-width: 226px;
-    min-height: 800px;
+  position: fixed;
+    
+    min-height: 100vh;
     border-radius: 0px 45px 45px 0px;
     border: 1px;
     color: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
 linear-gradient(0deg, #FFFFFF, #FFFFFF);
 border: 1px solid #0000004D;
 
+}
+.sideBar-item a {
+  text-decoration: none; 
+  color: inherit;
 }
 .sideBar-item{
     display: flex;
@@ -39,6 +47,7 @@ border: 1px solid #0000004D;
     text-align: left;
     /* height: 100%; */
     color: #666666;
+    text-decoration: none;
 }
 .side-logo{
     width: 25px;
@@ -50,30 +59,29 @@ box-shadow: 0px 1px 2px 0px #00000033;
     padding-left: 15%;  
 }
 .Movie-item span {
-    padding: 0.5rem;
+    padding: 0.4rem;
     font-family: Poppins;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     letter-spacing: 0em;
     text-align: left;
     cursor: pointer;
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
   
   .Movie-item span.activePage {
     transition: all 0.3s ease-in-out;
-    width: 226px;
-height: 70px;
-
+    width: 100%;
     border-right: 6px solid #BE123C;
     background: #BE123C1A;
     font-family: Poppins;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
-    letter-spacing: 0em;
     text-align: left;
     color: #BE123C;
+    
   }
   .item-name{
     white-space: nowrap;
@@ -81,37 +89,31 @@ height: 70px;
   }
   .message-item{
     width: 170px;
-    min-height: 228px;
+    min-height: 180px;
     border-radius: 20px;
     border: 1px;
 border: 1px solid #BE123CB2;
-font-family: Poppins;
-font-size: 15px;
-font-weight: 600;
-line-height: 23px;
-letter-spacing: 0em;
 text-align: left;
 color: #333333CC;
-margin-left: 12%;
+margin: auto;
 margin-bottom: 1rem;
-margin-top: 2rem;
+margin-top: 1rem;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
   }
   .message-info{
-    width: 137px;
-    height: 69px;
+    width: 80%;
     font-family: Poppins;
 font-size: 15px;
 font-weight: 600;
 line-height: 23px;
 letter-spacing: 0em;
-text-align: left;
+align-items: center;
 color: #666666;
-padding: 10px;
-margin-top: 1rem;
+padding: 5px;
+margin-top: 0rem;
 margin-bottom: 5px;
   }
   .message-description{
@@ -119,10 +121,11 @@ margin-bottom: 5px;
     font-size: 12px;
     font-weight: 500;
     line-height: 18px;
-    letter-spacing: 0em;
-    text-align: left;
+    align-items: center;
     display: flex;
-    padding: 8px;
+    padding: 1px;
+    width: 80%;
+    margin-bottom: 5px;
   }
   .message-button{
     width: 112px;
@@ -143,9 +146,20 @@ cursor: pointer;
   @media screen and (max-width: 980px) {
     .sideBar{
         max-width: 50px;
-        min-height: 800px;
+        min-height: 100vh;
     
     }
+    .logo-container{
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      margin-left: 0px;
+  }
+    .SideBar-flexer{
+      min-width: 50px;
+    }
+    .Movie-item span span{
+      padding-left: 8%;  
+  }
     .logo-name-sideBar{
       display: none;
     }
@@ -160,7 +174,6 @@ cursor: pointer;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        text-align: left;
         
     }
     .side-logo{

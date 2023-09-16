@@ -10,7 +10,7 @@ import Logout from '../../assest/images/Logout.png'
 import Tv from '../../assest/images/tv.png'
 
 function SideBar() {
-  const [activeItem, setActiveItem] = useState('Home');
+  const [activeItem, setActiveItem] = useState('Movies');
 
   const handleItemClick = (item) => {
     setActiveItem(item);
@@ -22,14 +22,14 @@ function SideBar() {
         <div className='sideBar-item'>
 
           <div className='Movie-item'>
-            <span className={activeItem === 'Home' ? 'activePage' : ''}
+            <Link to='/'><span className={activeItem === 'Home' ? 'activePage' : ''}
               onClick={() => handleItemClick('Home')}>
               <span>
                 <img src={Home} alt="Home" className="side-logo" />
                 <span className='item-name'> Home </span>
               </span>
             </span>
-
+            </Link>
           </div>
           <div className='Movie-item'>
             <span className={activeItem === 'Movies' ? 'activePage' : ''}
