@@ -14,6 +14,12 @@ function MainView() {
     const { id } = useParams(); // Get the 'id' parameter from the URL
     const { allId, loading, error } = useIdApi(id); // Use your custom hook to fetch data
 
+    // Function to format a date string to UTC
+    const formatToUTC = (dateString) => {
+        const options = { timeZone: 'UTC' };
+        return new Date(dateString).toLocaleDateString(undefined, options).replace(/\//g, '-');
+    };
+
     useEffect(() => {
         // You can perform additional actions here when 'allId' changes
         // For example, update the document title or trigger other side effects
@@ -21,15 +27,19 @@ function MainView() {
     }, [allId]);
 
     if (loading) {
-        return <div className="loader-container">
-        <div className="circular-loader"></div>
-      </div>
+        return (
+            <div className="loader-container">
+                <div className="circular-loader"></div>
+            </div>
+        );
     }
-    if (error) {
 
-        return  <div className="error-container">
-        <p>Error: {error.message}</p>
-    </div>;
+    if (error) {
+        return (
+            <div className="error-container">
+                <p>Error: {error.message}</p>
+            </div>
+        );
     }
 
     return (
@@ -38,25 +48,24 @@ function MainView() {
                 <div
                     className='Movie-Trailer'
                     style={{
-                        backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${allId.backdrop_path || allId.poster_path
-                            }`})`
+                        backgroundImage: `url(${`https://image.tmdb.org/t/p/original/${allId.backdrop_path || allId.poster_path}`})`
                     }}
                 >
                     <div className="play-wrapper">
                         <img src={play} alt="triller-Logo" className="play-logo" />
                         <span> Watch Trailer </span>
                     </div>
-
                 </div>
                 <div className='Movie-view-bottom'>
                     <div className='Movie-view-left'>
                         <div className='Movie-view-left-title-wrapper'>
                             <div className='Movie-view-left-title'>
-                                <p data-testid='movie-title'>{allId.title}•</p>
-                                <p data-testid='movie-release-date'>{allId.release_date}</p> 
+                                <p id='movie-title' data-testid='movie-title'>{allId.title} </p>
+                                <p data-testid='movie-release-date'>{formatToUTC(allId.release_date)}</p>
                             </div>
-                            <p data-testid='movie-runtime'>{allId.runtime}m</p>
+                           
                             <div className='Movie-view-left-cat'>
+                            <p data-testid='movie-runtime'>{allId.runtime}m</p>
                                 {allId.genres.map((genre) => (
                                     <span key={genre.id}>{genre.name}</span>
                                 ))}
@@ -112,14 +121,9 @@ function MainView() {
                                 <p> The Best Movies and Shows in September</p>
                             </span>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
-
         </>
     );
 }

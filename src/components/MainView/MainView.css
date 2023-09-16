@@ -63,12 +63,20 @@ height: 157px;
 .Movie-view-left-title{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+#movie-title{
+    width: 70%;
+    overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 .Movie-view-left-title-wrapper{
 display: flex;
 align-items: center;
 justify-content: space-between;
-
+margin-bottom: 1rem;
 }
 .Movie-view-bottom{
     display: flex;
